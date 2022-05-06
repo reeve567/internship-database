@@ -68,11 +68,9 @@ from students
                              on internshipPositions.id = internshipApplications.internshipPositionId) as res
               on students.id = res.studentId;
 
-create view if not exists applicationToInternship
-as
-select *
-from internships
-         left join internshipApplications on internshipApplications.id = internships.internshipApplicationId;
+create view if not exists applicationToInternship as select * from internships left join internshipApplications on internshipApplications.id = internships.internshipApplicationId;
+
+create view if not exists companiesPositions as select * from companies join internshipPositions on companies.id = internshipPositions.companyId;
 
 /*
 create view if not exists internshipLowestWage
